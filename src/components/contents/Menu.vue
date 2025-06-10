@@ -9,7 +9,7 @@
       <MenuComponent
         :title="menu.title"
         :items="menu.items"
-        @select="(value) => console.log('Selected:', value)"
+        @select="(v) => console.log(v)"
       >
         <template #item="{ item }">
           <span>{{ item }}</span>
@@ -23,8 +23,11 @@
 import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { swiperOptions } from "../../common/SwiperOption";
-import { onSwiper, onSlideChange } from "../../functions/common/Swiper";
+import {
+  onSwiper,
+  onSlideChange,
+  swiperOptions,
+} from "../../functions/common/Swiper";
 import MenuComponent from "../common/MenuComponent.vue";
 import menusData from "../../template/dump.json";
 import "swiper/swiper-bundle.css";

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { ref } from "vue";
 // 1. props 정의
 const props = defineProps<{
   title?: string;
@@ -10,21 +11,22 @@ const emit = defineEmits<{
   (e: "select", value: string): void;
 }>();
 
+const selected = ref<string | null>(null);
+
 function onItemClick(item: string) {
+  selected.value = item;
   emit("select", item);
 }
 </script>
 
 <template>
   <div>
-    <!-- 2. slot 기본 사용 -->
-    <h2>{{ props.title }}</h2>
+    <h2>{{ selected || props.title }}</h2>
     <li v-for="item in props.items" :key="item" @click="onItemClick(item)">
       <slot name="item" :item="item">
         {{ item }}
       </slot>
     </li>
-    <!-- 기본 slot -->
     <slot></slot>
   </div>
 </template>
