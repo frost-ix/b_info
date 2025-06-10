@@ -1,3 +1,6 @@
-# BangDream! Girls band project 종합 정보 사이트 입니다.
+# BanG Dream! Girls band project 종합 정보 사이트 입니다.
 
 ## 1인개발이라 버그가 발생 할 수 있어요!
+- 현재 기능을 추가 하고 있습니다.
+- 공식 정보를 제공 합니다.
+- 일본어로 된 원문을 한글로 번역 후 제공 할 예정 입니다.
