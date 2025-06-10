@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+@import "components/common/Menu.css";
+@import "components/header/Header.css";
+@import "components/footer/Footer.css";
+
+body {
+  font-family: "Nanum Gothic", sans-serif;
+  text-align: center;
+}
