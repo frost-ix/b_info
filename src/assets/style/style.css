@@ -2,8 +2,9 @@
 @import "components/common/Menu.css";
 @import "components/header/Header.css";
 @import "components/footer/Footer.css";
+@import "components/common/MenuComponent.css";
 
-body {
+* {
   font-family: "Nanum Gothic", sans-serif;
   text-align: center;
 }

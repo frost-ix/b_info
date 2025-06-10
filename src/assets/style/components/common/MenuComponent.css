@@ -1,0 +1,15 @@
+li {
+  margin-bottom: 0.3rem;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  li {
+    margin-bottom: 0.7rem;
+  }
+}

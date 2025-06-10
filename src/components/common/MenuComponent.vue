@@ -2,7 +2,6 @@
 // 1. props 정의
 const props = defineProps<{
   title?: string;
-  color?: string;
   items?: string[];
 }>();
 
@@ -17,7 +16,7 @@ function onItemClick(item: string) {
 </script>
 
 <template>
-  <div :style="{ color: props.color }">
+  <div>
     <!-- 2. slot 기본 사용 -->
     <h2>{{ props.title }}</h2>
     <li v-for="item in props.items" :key="item" @click="onItemClick(item)">

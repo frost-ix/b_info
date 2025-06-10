@@ -3,14 +3,54 @@
   text-align: left;
   display: flex;
   margin-bottom: 3%;
+  flex-direction: row;
+  align-items: flex-end;
 }
 
 #header-text {
   width: 10%;
+  min-width: 120px;
   margin-left: 25.5%;
+  font-size: 2.2rem;
 }
 
 #header-subtext {
   font-size: 10px;
   margin-top: 3.8%;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  #header {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4vw;
+  }
+  #header-text {
+    width: 80%;
+    min-width: 0;
+    margin-left: 10%;
+    font-size: 1.7rem;
+  }
+  #header-subtext {
+    font-size: 1rem;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #header {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 6vw;
+  }
+  #header-text {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    font-size: 1.3rem;
+  }
+  #header-subtext {
+    font-size: 0.8rem;
+    margin-top: 1.2rem;
+  }
 }
