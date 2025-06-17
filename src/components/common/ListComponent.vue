@@ -7,18 +7,11 @@ function handleClick() {
 
 <template>
   <div class="list-row" @click="handleClick">
-    <span>{{ item.title ?? item }}</span>
+    <h2>{{ item.title ?? item }}</h2>
+    <ul>
+      <li v-for="item in item.items">
+        {{ item }}
+      </li>
+    </ul>
   </div>
 </template>
-
-<style scoped>
-.list-row {
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.list-row:hover {
-  background: #f5f5f5;
-}
-</style>

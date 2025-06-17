@@ -21,7 +21,7 @@ function onItemClick(item: string) {
 
 <template>
   <div>
-    <h2>{{ selected || props.title }}</h2>
+    <h2>{{ props.title }}</h2>
     <li v-for="item in props.items" :key="item" @click="onItemClick(item)">
       <slot name="item" :item="item">
         {{ item }}

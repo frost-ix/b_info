@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <footer id="footer">
-      <p>© 2025 frostix (as Kaname) All rights reserved.</p>
-      <p>© BanG Dream! Project</p>
-    </footer>
-  </div>
+  <footer id="footer">
+    <p>© BanG Dream! Project. All rights reserved</p>
+    <p>Developer: frostix (as Kaname)</p>
+  </footer>
 </template>
