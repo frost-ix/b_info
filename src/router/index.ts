@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Menu from "../components/contents/Menu.vue";
 import List from "../components/contents/List.vue";
+import Exception from "@/components/exception/Exception.vue";
+import InternalException from "@/components/exception/InternalException.vue";
 
 // Root Vue Router
 const router = createRouter({
@@ -18,6 +20,17 @@ const router = createRouter({
       name: "List",
       component: List,
       props: true,
+    },
+    {
+      // Exception router
+      path: "/e",
+      name: "Exception",
+      component: Exception,
+    },
+    {
+      path: "/e/in",
+      name: "Internal",
+      component: InternalException,
     },
   ],
 });

@@ -14,7 +14,7 @@ const data = ref(
 </script>
 
 <template>
-  <button @click="returnPage">뒤로가기</button>
+  <button @click="returnPage('List')">뒤로가기</button>
   <ListComponent
     class="list-component"
     :title="data.title"

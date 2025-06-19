@@ -1,8 +1,8 @@
 import router from "@/router";
 
-function returnPage() {
+function returnPage(pathName: string) {
   router.push({
-    name: "Menu",
+    name: pathName,
   });
 }
 
