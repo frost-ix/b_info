@@ -2,8 +2,8 @@
   <Swiper
     :modules="modules"
     :options="options"
-    @swiper="onSwiper"
-    @slideChange="onSlideChange"
+    @swiper="CommonSwiper.swiperFunctions.onSwiper"
+    @slideChange="CommonSwiper.swiperFunctions.onSlideChange"
   >
     <SwiperSlide v-for="(menu, index) in menus" :key="index">
       <MenuComponent :title="menu.title" :items="menu.items">
@@ -21,19 +21,17 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import "swiper/swiper-bundle.css";
-import {
-  onSwiper,
-  onSlideChange,
-  swiperOptions,
-} from "@/functions/common/Swiper";
+import { CommonSwiper } from "@/functions/common/Swiper";
 import MenuComponent from "@/components/common/MenuComponent.vue";
 import menusData from "@/template/dump.json";
 
 const menus = ref(menusData);
-const modules = [Navigation, Pagination, Autoplay];
-const options = swiperOptions();
+const modules = [
+  CommonSwiper.swiperModules.Navigation,
+  CommonSwiper.swiperModules.Pagination,
+  CommonSwiper.swiperModules.Autoplay,
+];
+const options = CommonSwiper.swiperFunctions.swiperOptions();
 const router = useRouter();
 
 function handleSelect(item: string) {
