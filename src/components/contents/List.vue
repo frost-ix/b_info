@@ -1,23 +1,37 @@
+<template>
+  <ListComponent class="list-component" :title="data.title" :items="data.items">
+    <template #item="{ item }">
+      <ul @click="handleSelect(item)">
+        <li>
+          {{ item.contents ?? "불러오는 중.." }}
+        </li>
+      </ul>
+    </template>
+  </ListComponent>
+</template>
+
 <script setup lang="ts">
 import { ref } from "vue";
-import { returnPage } from "@/functions/common/event";
 import ListComponent from "@/components/common/ListComponent.vue";
-import listData from "@/template/listDump.json";
+import { getTargetBoardList } from "@/functions/api/Board/BoardAxios";
+import { useRouter, useRoute } from "vue-router";
 
-const { title } = history.state || "기본 제목";
-const data = ref(
-  listData.filter((item) => item.title === title)[0] || {
-    title: "기본 제목",
-    items: ["test", "test2"],
-  },
-);
+const { title } = history.state;
+const boardList = await getTargetBoardList(title);
+const data = ref({
+  title: title,
+  items: boardList.length > 0 ? boardList : [],
+});
+
+const router = useRouter();
+const route = useRoute();
+
+function handleSelect(item: any) {
+  console.log("Selected item:", item);
+  router.push({
+    name: "Board",
+    state: { boardId: item },
+    query: { ...route.query },
+  });
+}
 </script>
-
-<template>
-  <button @click="returnPage('List')">뒤로가기</button>
-  <ListComponent
-    class="list-component"
-    :title="data.title"
-    :items="data.items"
-  />
-</template>
