@@ -1,0 +1,36 @@
+// 전역 스타일 및 변수 정의
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+
+$font-primary: "Nanum Gothic";
+$color-bg: #ffffff;
+$color-text: #1c1c1e;
+$color-subtext: #3a3a3c;
+$color-accent: #007aff;
+$color-border: #e5e5ea;
+
+html,
+body,
+#q-app {
+  font-family: $font-primary;
+  background-color: $color-bg;
+  color: $color-text;
+}
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+h2 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+a {
+  color: $color-accent;
+  text-decoration: none;
+}

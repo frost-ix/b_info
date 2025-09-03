@@ -1,7 +1,7 @@
 const BOARD_API_URL: string = "/board";
 const USER_API_URL: string = "/user";
-const CTEGORIES_API_URL: string = "/categories";
-
+const CATEGORIES_API_URL: string = "/categories";
+const CARD_API_URL: string = "/b/cards";
 /**
  * ## API 엔드포인트 정의
  * | axios URI의 경우
@@ -16,7 +16,8 @@ const CTEGORIES_API_URL: string = "/categories";
 const API_URLS = {
   BOARD: BOARD_API_URL,
   USER: USER_API_URL,
-  CATEGORIES: CTEGORIES_API_URL,
+  CATEGORIES: CATEGORIES_API_URL,
+  CARD: CARD_API_URL,
 };
 
 export default API_URLS;

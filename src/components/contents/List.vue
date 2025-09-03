@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import ListComponent from "@/components/common/ListComponent.vue";
-import { getTargetBoardList } from "@/functions/api/Board/BoardAxios";
+import { getTargetBoardList } from "@/functions/api/board/BoardAxios";
 import { useRouter, useRoute } from "vue-router";
 
 const { title } = history.state;

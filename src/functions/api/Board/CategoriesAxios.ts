@@ -6,7 +6,7 @@ import { returnPage } from "@/functions/common/event";
 const CATEGORIES_API = API_URLS.CATEGORIES;
 
 async function getCategory(): Promise<Category[]> {
-  const res = await Axios.get<Category[]>(CATEGORIES_API + "/all").then(
+  const res = await Axios.get<Category[]>(CATEGORIES_API + "/list").then(
     (res) => {
       if (!!res.data) {
         return res.data;

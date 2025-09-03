@@ -2,6 +2,7 @@ import App from "./App.vue";
 import router from "./router";
 import { createApp } from "vue";
 import "./assets/style/style.css";
+import "./assets/style/global.scss";
 
 // Quasar Framework Import
 import { Quasar } from "quasar";

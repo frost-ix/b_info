@@ -18,7 +18,7 @@
 </template>
 <script setup lang="ts">
 import BoardComponent from "@/components/common/BoardComponent.vue";
-import { getTargetBoard } from "@/functions/api/Board/BoardAxios";
+import { getTargetBoard } from "@/functions/api/board/BoardAxios";
 import { ref } from "vue";
 
 const { boardId } = history.state;

@@ -5,17 +5,14 @@ import { Board } from "@/interface/board";
 
 const BOARD_API = API_URLS.BOARD;
 
-async function getTargetBoardList(tableId: string): Promise<any> {
-  const data = await Axios.get<Board[]>(BOARD_API + "/li/t", {
-    params: { tableId },
-  }).then((res) => {
+async function getList(): Promise<any> {
+  const data = await Axios.get<Board[]>(BOARD_API + "/list").then((res) => {
     if (!!res.data) {
-      return res.data;
-    } else {
       return returnPage("Exception");
+    } else {
+      return res.data;
     }
   });
-  console.log(data);
   return data;
 }
 
@@ -32,14 +29,17 @@ async function getTargetBoard(boardId: string): Promise<any> {
   return data;
 }
 
-async function getList(): Promise<any> {
-  const data = await Axios.get<Board[]>(BOARD_API + "/li").then((res) => {
+async function getTargetBoardList(tableId: string): Promise<any> {
+  const data = await Axios.get<Board[]>(BOARD_API + "/list/t", {
+    params: { tableId },
+  }).then((res) => {
     if (!!res.data) {
-      return returnPage("Exception");
-    } else {
       return res.data;
+    } else {
+      return returnPage("Exception");
     }
   });
+  console.log(data);
   return data;
 }
 
