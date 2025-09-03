@@ -4,15 +4,6 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "env.d.ts",
-    "auto-imports.d.ts",
-    "components.d.ts"
-  ],
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
@@ -29,7 +20,7 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     }
   }
 }

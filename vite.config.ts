@@ -22,8 +22,10 @@ export default defineConfig({
     },
   },
   build: {
+    outDir: "dist",
+    emptyOutDir: true,
+    assetsDir: "assets",
     minify: "terser",
-    outDir: "build/dist",
     sourcemap: false,
     terserOptions: {
       compress: {

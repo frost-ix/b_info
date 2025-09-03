@@ -32,3 +32,6 @@ dist-ssr
 /.next/
 /build
 .continue
+
+*.tsbuildinfo
+.vscode
