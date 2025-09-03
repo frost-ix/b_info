@@ -3,7 +3,6 @@ import { defineConfig } from "vite";
 import { fileURLToPath, URL } from "node:url";
 import { quasar, transformAssetUrls } from "@quasar/vite-plugin";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue({ template: { transformAssetUrls } }),
@@ -23,8 +22,32 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: "dist",
-    sourcemap: true,
+    minify: "terser",
+    outDir: "build/dist",
+    sourcemap: false,
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+      mangle: {
+        toplevel: true,
+      },
+      format: {
+        comments: false,
+      },
+    },
+    rollupOptions: {
+      output: {
+        entryFileNames: "[name].js",
+        chunkFileNames: "[name].js",
+        assetFileNames: "[name].[ext]",
+      },
+    },
+  },
+  define: {
+    __VUE_PROD_DEVTOOLS__: false,
+    __VUE_OPTIONS_API__: true,
   },
   resolve: {
     alias: {
