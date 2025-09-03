@@ -40,3 +40,5 @@ async function getCardByCardId(cardId: string): Promise<Card | null> {
   });
   return res;
 }
+
+export { getCards, getCardByMemberId, getCardByCardId };
