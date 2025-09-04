@@ -23,12 +23,15 @@ import { useRouter, useRoute } from "vue-router";
 import { CommonSwiper } from "@/functions/common/Swiper";
 import MenuComponent from "@/components/common/MenuComponent.vue";
 import { getCategory } from "@/functions/api/Board/CategoriesAxios";
+import { getCateTemplateData } from "@/functions/api/template/Template";
+import { Category } from "@/interface/catetory";
+import { SwiperModule } from "swiper/types";
 
 // ----------------------------------------------------------------
 // CommonSwiper에서 Swiper와 SwiperSlide 모듈 가져오기
 const Swiper = CommonSwiper.swiperModules.Swiper;
 const SwiperSlide = CommonSwiper.swiperModules.SwiperSlide;
-const modules = [
+const modules: SwiperModule[] = [
   CommonSwiper.swiperModules.Navigation,
   CommonSwiper.swiperModules.Pagination,
   CommonSwiper.swiperModules.Autoplay,
@@ -36,7 +39,7 @@ const modules = [
 const options = CommonSwiper.swiperFunctions.swiperOptions();
 // ----------------------------------------------------------------
 
-const categories = await getCategory();
+const categories: Category[] = (await getCategory()) || getCateTemplateData();
 const category = ref(categories.length > 0 ? categories : null);
 const router = useRouter();
 const route = useRoute();
