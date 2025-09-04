@@ -5,18 +5,18 @@ import { Board } from "@/interface/board";
 
 const BOARD_API = API_URLS.BOARD;
 
-async function getList(): Promise<any> {
+async function getList(): Promise<Board[]> {
   const data = await Axios.get<Board[]>(BOARD_API + "/list").then((res) => {
-    if (!!res.data) {
-      return returnPage("Exception");
-    } else {
+    if (res.data) {
       return res.data;
+    } else {
+      return returnPage("Exception");
     }
   });
-  return data;
+  return data ? data : [];
 }
 
-async function getTargetBoard(boardId: string): Promise<any> {
+async function getTargetBoard(boardId: string): Promise<Board> {
   const data = await Axios.get<Board>(BOARD_API, {
     params: { boardId },
   }).then((res) => {
@@ -26,10 +26,10 @@ async function getTargetBoard(boardId: string): Promise<any> {
       return returnPage("Exception");
     }
   });
-  return data;
+  return data ? data : ({} as Board);
 }
 
-async function getTargetBoardList(tableId: string): Promise<any> {
+async function getTargetBoardList(tableId: string): Promise<Board[]> {
   const data = await Axios.get<Board[]>(BOARD_API + "/list/t", {
     params: { tableId },
   }).then((res) => {
@@ -39,57 +39,7 @@ async function getTargetBoardList(tableId: string): Promise<any> {
       return returnPage("Exception");
     }
   });
-  console.log(data);
-  return data;
+  return data ? data : [];
 }
 
-function postBoard(boardData: object) {
-  return Axios.post(BOARD_API, { data: boardData }).then((res) => {
-    const statusCode = res.data;
-    switch (statusCode) {
-      case 200:
-        return "ok";
-      case 404:
-        return returnPage("Exception");
-      case 500:
-        return returnPage("Internal");
-    }
-  });
-}
-
-function patchBoard(boardData: object) {
-  return Axios.patch(BOARD_API, { data: boardData }).then((res) => {
-    const statusCode = res.data;
-    switch (statusCode) {
-      case 200:
-        return "ok";
-      case 404:
-        return returnPage("Exception");
-      case 500:
-        return returnPage("Internal");
-    }
-  });
-}
-
-function deleteBoard(boardId: string) {
-  return Axios.delete(BOARD_API, { data: { boardId } }).then((res) => {
-    const statusCode = res.data;
-    switch (statusCode) {
-      case 200:
-        return "ok";
-      case 404:
-        return returnPage("Exception");
-      case 500:
-        return returnPage("Internal");
-    }
-  });
-}
-
-export {
-  getTargetBoardList,
-  getTargetBoard,
-  getList,
-  postBoard,
-  patchBoard,
-  deleteBoard,
-};
+export default { getTargetBoardList, getTargetBoard, getList };

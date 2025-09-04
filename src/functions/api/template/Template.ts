@@ -1,5 +1,6 @@
-import { Category } from "@/interface/catetory";
+import { Category } from "@/interface/category";
 import tempData from "@/template/dump.json";
+import listData from "@/template/listDump.json";
 
 function getCateTemplateData(): Category[] {
   const templateData: Category[] = JSON.parse(JSON.stringify(tempData));
@@ -7,8 +8,8 @@ function getCateTemplateData(): Category[] {
 }
 
 function getListTempData(): Category[] {
-  const templateData: Category[] = JSON.parse(JSON.stringify(tempData));
+  const templateData: Category[] = JSON.parse(JSON.stringify(listData));
   return templateData;
 }
 
-export { getCateTemplateData, getListTempData };
+export default { getCateTemplateData, getListTempData };

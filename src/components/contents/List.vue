@@ -13,11 +13,11 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import ListComponent from "@/components/common/ListComponent.vue";
-import { getTargetBoardList } from "@/functions/api/board/BoardAxios";
+import BoardAxios from "@/functions/api/board/BoardAxios";
 import { useRouter, useRoute } from "vue-router";
 
 const { title } = history.state;
-const boardList = await getTargetBoardList(title);
+const boardList = await BoardAxios.getTargetBoardList(title);
 const data = ref({
   title: title,
   items: boardList.length > 0 ? boardList : [],
