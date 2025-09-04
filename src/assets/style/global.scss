@@ -1,4 +1,7 @@
 // 전역 스타일 및 변수 정의
+@use "header/header.scss";
+@use "menubar/menubar.scss";
+
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
 
 $font-primary: "Nanum Gothic";
@@ -13,24 +16,4 @@ body,
 #q-app {
   font-family: $font-primary;
   background-color: $color-bg;
-  color: $color-text;
-}
-h1 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-h2 {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 6px;
-}
-p {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.5;
-}
-a {
-  color: $color-accent;
-  text-decoration: none;
 }

@@ -22,7 +22,7 @@ import { ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { CommonSwiper } from "@/functions/common/Swiper";
 import MenuComponent from "@/components/common/MenuComponent.vue";
-import { getCategory } from "@/functions/api/board/CategoriesAxios";
+import { getCategory } from "@/functions/api/Board/CategoriesAxios";
 
 // ----------------------------------------------------------------
 // CommonSwiper에서 Swiper와 SwiperSlide 모듈 가져오기

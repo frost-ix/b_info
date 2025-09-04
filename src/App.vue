@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import Header from "@/components/header/Header.vue";
 import Footer from "@/components/footer/Footer.vue";
-import { returnPage } from "@/functions/common/event";
+import MenuBar from "./components/contents/bar/MenuBar.vue";
 </script>
 <template>
   <Header />
-  <button @click="returnPage('Menu')">홈으로</button>
+  <MenuBar />
   <Suspense>
     <router-view />
   </Suspense>
