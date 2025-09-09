@@ -1,0 +1,40 @@
+:root {
+  --background-color: #ffffff;
+  --text-color: #212529;
+  --menu-background: #f8f9fa;
+  --menu-text-color: #343a40;
+  --menu-active-link-bg: #e9ecef;
+  --border-color: #dee2e6;
+}
+
+/* 다크 테마 변수 */
+body.dark-theme {
+  --background-color: #212529;
+  --text-color: #f8f9fa;
+  --menu-background: #343a40;
+  --menu-text-color: #f8f9fa;
+  --menu-active-link-bg: #495057;
+  --border-color: #495057;
+}
+
+/* 변수를 사용하여 공통 스타일 적용 */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+/* MenuBar.vue의 스타일에도 변수 적용 (예시) */
+.slide-menu {
+  background-color: var(--menu-background);
+}
+
+.menu-link {
+  color: var(--menu-text-color);
+}
+
+.active-link {
+  background-color: var(--menu-active-link-bg);
+}

@@ -25,7 +25,7 @@ import { ref, onMounted, onUnmounted, nextTick } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { CommonSwiper } from "@/functions/common/Swiper";
 import MenuComponent from "@/components/common/MenuComponent.vue";
-import CategoryAxios from "@/functions/api/board/CategoriesAxios";
+import CategoryAxios from "@/functions/api/Board/CategoriesAxios";
 import { Category } from "@/interface/category";
 import { SwiperModule } from "swiper/types";
 

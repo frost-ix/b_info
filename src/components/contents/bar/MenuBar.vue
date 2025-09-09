@@ -15,7 +15,7 @@
 
     <nav class="slide-menu" v-show="isMenuOpen">
       <div class="menu-header">
-        <h3>메뉴</h3>
+        <h3>카테고리</h3>
         <button @click="closeMenu" class="close-btn">&times;</button>
       </div>
 
@@ -31,24 +31,36 @@
           </router-link>
         </li>
       </ul>
+      <a id="toggle-theme" @click="toggleTheme" style="cursor: pointer">
+        {{ isDarkTheme ? "라이트 모드" : "다크 모드" }}
+      </a>
     </nav>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
+import routerPath from "@/router/index";
+import { loadTheme, toggleThemeSys } from "@/functions/common/event";
 
 const isMenuOpen = ref(false);
+const isDarkTheme = ref(false);
 
-const menuItems = ref([
-  { id: 1, title: "Home", to: "/" },
-  { id: 2, title: "About", to: "/about" },
-  { id: 3, title: "Projects", to: "/projects" },
-  { id: 4, title: "Contact", to: "/contact" },
-]);
+const pathList = routerPath.options.routes
+  .filter((route) => !route.path.includes("/e") && route.path !== "/")
+  .map((route) => ({
+    title: route.name,
+    to: route.path,
+  }));
+
+const menuItems = ref(pathList);
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
+};
+
+const toggleTheme = () => {
+  isDarkTheme.value = toggleThemeSys();
 };
 
 const closeMenu = () => {
@@ -63,6 +75,7 @@ const handleKeydown = (event) => {
 
 onMounted(() => {
   document.addEventListener("keydown", handleKeydown);
+  isDarkTheme.value = loadTheme();
 });
 
 onUnmounted(() => {

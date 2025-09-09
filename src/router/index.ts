@@ -12,19 +12,19 @@ const router = createRouter({
     {
       // 메뉴 컴포넌트 router
       path: "/",
-      name: "Menu",
+      name: "메뉴",
       component: Menu,
     },
     {
       // 리스트 컴포넌트 router
       path: "/list",
-      name: "List",
+      name: "리스트",
       component: List,
       props: true,
     },
     {
       path: "/list/board",
-      name: "Board",
+      name: "게시판",
       component: Board,
       props: true,
     },
