@@ -11,9 +11,13 @@
     </button>
 
     <!-- v-show 사용 -->
-    <div class="menu-overlay" v-show="isMenuOpen" @click="closeMenu"></div>
+    <div
+      class="menu-overlay"
+      :class="{ open: isMenuOpen }"
+      @click="closeMenu"
+    ></div>
 
-    <nav class="slide-menu" v-show="isMenuOpen">
+    <nav class="slide-menu" :class="{ open: isMenuOpen }">
       <div class="menu-header">
         <h3>카테고리</h3>
         <button @click="closeMenu" class="close-btn">&times;</button>

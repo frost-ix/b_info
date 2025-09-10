@@ -41,25 +41,43 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  animation: fadeIn 0.3s ease;
+
+  // 기본 상태 (닫힘): 투명하고 보이지 않음
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+
+  // 'open' 클래스가 있을 때 (열림): 나타남
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .slide-menu {
   position: fixed;
   top: 0;
   right: 0;
-  width: 300px;
-  height: 100vh;
-  background-color: #ffffff;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 1001;
-  padding: 20px 0;
-  overflow-y: auto;
-  animation: slideIn 0.3s ease;
+  width: 250px; /* 메뉴 너비 */
+  height: 100%;
+  background-color: var(--menu-background, #fff);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+
+  // 기본 상태 (닫힘): 화면 왼쪽 밖에 위치
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+
+  // 'open' 클래스가 있을 때 (열림): 화면 안으로 슬라이드
+  &.open {
+    transform: translateX(0);
+  }
 }
 
 @keyframes fadeIn {
