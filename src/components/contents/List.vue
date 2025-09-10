@@ -29,7 +29,7 @@ const route = useRoute();
 function handleSelect(item: any) {
   console.log("Selected item:", item);
   router.push({
-    name: "Board",
+    name: "게시판",
     state: { boardId: item },
     query: { ...route.query },
   });

@@ -1,7 +1,7 @@
 import router from "@/router";
 
 function returnPage(pathName: string) {
-  router.replace({
+  router.push({
     name: pathName,
   });
 }

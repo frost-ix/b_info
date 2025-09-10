@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, nextTick } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 
 import { useRouter, useRoute } from "vue-router";
 import { CommonSwiper } from "@/functions/common/Swiper";
@@ -51,7 +51,7 @@ const isMounted = ref(false); // 마운트 상태 추적
 // List.vue로 이동하면서 상태로 item 전달
 function handleSelect(item: string) {
   router.push({
-    name: "List",
+    name: "리스트",
     state: { title: item },
     query: { ...route.query },
   });
@@ -82,9 +82,5 @@ onMounted(async () => {
       loading.value = false;
     }
   }
-});
-
-onUnmounted(() => {
-  isMounted.value = false;
 });
 </script>
